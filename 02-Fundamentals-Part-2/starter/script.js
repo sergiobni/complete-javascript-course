@@ -429,7 +429,7 @@ while (dice !== 6) {
   dice = Math.trunc(Math.random() * 6) + 1;
   if (dice === 6) console.log('Loop ended');
 }
-*/
+
 
 //Coding challenge 4
 
@@ -459,3 +459,92 @@ const calcAverage = (arr) => {
   return sum / arr.length;
 };
 console.log(calcAverage(totals));
+
+
+//Problem
+
+//Given an array of temperatures of a day, calculate the amplitude. Sometimes there are errors.
+
+const temperatures = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5];
+
+//1 understanding the problem: What is amplitude? The difference between highest and lowest temp
+
+//2 Breaking up into sub problems
+//How to ignore errors
+//-Find max temp in the array
+//Find min temp in the array
+//Restar min al max y devolver el resultado
+
+const calcTempAmplitude = function (temps) {
+  let max = temps[0];
+  let min = temps[0];
+  for (let i = 0; i < temps.length; i++) {
+    const currentTemp = temps[i];
+    if (typeof currentTemp != 'number') continue;
+    if (currentTemp > max) max = currentTemp;
+    if (currentTemp < min) min = currentTemp;
+  }
+  console.log(max, min);
+  return max - min;
+};
+
+calcTempAmplitude([3, 5, 6, 1, 5]);
+const amplitude = calcTempAmplitude(temperatures);
+console.log(amplitude);
+
+//Problem 2
+//function should now receive 2 arrays of problem
+//Do we need to implement the same functionality twice?
+//No, just merge two arrays, How to merge them? concat method
+
+const calcTempAmplitudeNew = function (t1, t2) {
+  const temps = t1.concat(t2);
+  let max = temps[0];
+  let min = temps[0];
+  for (let i = 0; i < temps.length; i++) {
+    const currentTemp = temps[i];
+    if (typeof currentTemp != 'number') continue;
+    if (currentTemp > max) max = currentTemp;
+    if (currentTemp < min) min = currentTemp;
+  }
+  console.log(max, min);
+  return max - min;
+};
+
+calcTempAmplitudeNew([3, 5, 6, 1, 5], [0, 2, -3, 9, 5]);
+const amplitudeNew = calcTempAmplitudeNew([3, 5, 6, 1, 5], [0, 2, -3, 9, 5]);
+console.log(amplitudeNew);
+
+
+const measureKelvin = function () {
+  const measurement = {
+    type: 'temp',
+    unit: 'celsius',
+
+    //C Fix the problem
+    value: Number(prompt('Degrees celsius:')),
+  };
+  //B Identifying the problem
+  console.table(measurement);
+
+  const kelvin = measurement.value + 273;
+  return kelvin;
+};
+// A) Identify the bug
+console.log(measureKelvin());
+
+//
+
+//array de máximas, pasar en un string único cada valor del array y acompañarlo de texto.
+
+const printForecast = (arr) => {
+  let string = '';
+  for (let i = 0; i < arr.length; i++) {
+    string += `... ${arr[i]}ºC in ${i + 1} days`;
+  }
+  return string;
+};
+
+console.log(printForecast([17, 21, 23]));
+console.log(printForecast([12, 5, -5, 0, 4]));
+*/
