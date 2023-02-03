@@ -1,9 +1,5 @@
 'use strict';
 
-// Data needed for a later exercise
-const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
-
 // Data needed for first part of the section
 const restaurant = {
   name: 'Classico Italiano',
@@ -26,9 +22,9 @@ const restaurant = {
       close: 24,
     },
   },
-  //Función retornando un array
-  order: function (starterIdex, mainIndex) {
-    return [this.starterMenu[starterIdex], this.mainMenu[mainIndex]];
+  //Función retornando un array para destructurarlo luego
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 };
 
@@ -40,20 +36,20 @@ const b = arr[1];
 const c = arr[2];
 
 //Desestructurando un array
-const [x, y, z] = arr;
+const [x, y, z] = arr; //aunque parezca un array realmente es el asignador para destructurar/desempaquetar
 console.log(x, y, z);
 //el array original no se destruye
 console.log(arr);
 
-//destructurando los elementos de un array creado, no tienen que por que ser todos los elementos que contiene el array
+//destructurando los elementos de un array creado, no tienen que por que ser todos los elementos que contiene el array, pero van por orden
 const [first, second] = restaurant.categories;
 console.log(first, second);
-//para sacar elementos que no sean continuos, dejamos un hueco
+//para sacar elementos que no sean continuos, dejamos un hueco y se saltara
 let [main, , secondary] = restaurant.categories;
 console.log(main, secondary);
 
-//Si queremos intercambiar elementos,
-//forma de hacer sin destructurar
+//Si queremos intercambiar (switch) elementos
+//Forma de hacer sin destructurar
 // let temp = main;
 // main = secondary;
 // secondary = temp;
@@ -70,8 +66,8 @@ console.log(starter, mainCourse);
 
 //¿Que pasa si tenemos un nested array
 const nested = [2, 4, [5, 6]];
-// const [i, , j] = nested;
-// console.log(i, j);
+const [g, , h] = nested;
+console.log(g, h);
 //Que pasa si queremos todos los valores individuales? Hacemos destructuring dentro de un destructuring
 const [i, , [j, k]] = nested;
 console.log(i, j, k);

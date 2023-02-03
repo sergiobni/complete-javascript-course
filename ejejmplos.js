@@ -1,13 +1,12 @@
 'use strict';
 /*
-//funciones
-
+//FUNCIONES
+*/
 function logger() {
   console.log('hola');
 }
 
 logger(); //invocar la función
-logger();
 
 function fruitProcessor(apples, oranges) {
   console.log(apples, oranges);
@@ -16,33 +15,26 @@ function fruitProcessor(apples, oranges) {
 }
 
 fruitProcessor(3, 5);
-console.log(fruitProcessor(4, 5)); //Para obtener el return hay que guardar el valor en un campo.
+console.log(fruitProcessor(4, 5)); //Para obtener el return hay que guardar el valor en algún sitio.
 
 const appleJuice = fruitProcessor(5, 0);
 const appleOrangeJuice = fruitProcessor(5, 6);
 
-//Function declaration
+//FUNCTION DECLARATION
 function calcAge1(birthYear) {
   return 2023 - birthYear;
 }
 
 const age1 = calcAge1(1992);
 
-//function expression
+//FUNCTION EXPRESSION
 const calcage2 = function (birthYear) {
   return 2023 - birthYear;
 };
 const age2 = calcage2(1992);
 console.log(age1, age2, calcage2(1992));
 
-
 //ARROW FUNCTION
-
-//function expression
-const calcage2 = function (birthYear) {
-  return 2023 - birthYear;
-};
-//arrow function
 
 const calcAge3 = (birthYear) => 2023 - birthYear;
 const age3 = calcAge3(1992);
@@ -55,7 +47,6 @@ const yearsUntilRetirement = (birthYear, firstName) => {
 };
 console.log(yearsUntilRetirement(1992, 'Sergio'));
 console.log(yearsUntilRetirement(1990, 'Pepe'));
-
 
 //FUNCTION CALLING OTHER FUNCTIONS
 
@@ -71,20 +62,18 @@ function fruitProcessor(apples, oranges) {
 }
 console.log(fruitProcessor(2, 3));
 
-
 const calcAge = (birthYear) => 2023 - birthYear;
 
 const yearsUntilRetirement = (birthYear, firstName) => {
   const age = calcAge(birthYear);
   const retirementAge = 65 - age;
   if (retirementAge > 0) {
-    return retirementAge;
+    return `${firstName} ${retirementAge}`;
   } else {
     return -1;
   }
 };
 console.log(yearsUntilRetirement(1950, 'Sergio'));
-
 
 //Challenge 1
 
@@ -108,7 +97,6 @@ console.log(checkWinner2(scoreD, scoreK));
 console.log(checkWinner2(1, 2));
 
 //Introduction to arrays
-
 const friend1 = 'Michael';
 const friend2 = 'Steven';
 const friend3 = 'Peter';
@@ -135,13 +123,11 @@ friends[2] = 'Jay';
 console.log(friends);
 
 //un array no es un valor primitivo, por eso podemos mutarlo aunque lo declaremos a una variable de tipo const. Lo que no podríamos hacer es cambiar todo el array directamente
-
 const firstName = 'Sergio';
 const sergio = [firstName, 'Julio', 2023 - 1992, friends];
 console.log(sergio);
 
 //ejercicio
-
 const calcage = function (birthYear) {
   return 2023 - birthYear;
 };
@@ -153,7 +139,7 @@ const age2 = calcage(years[1]);
 const age3 = calcage(years[years.length - 1]);
 
 console.log(age1, age2, age3);
-//meter en un array los resultados del calculo de edad
+//meter en un array los resultados del cálculo de edad
 const ages = [
   calcage(years[0]),
   calcage(years[1]),
@@ -165,30 +151,18 @@ console.log(ages);
 
 const friends = ['Michael', 'Steven', 'Peter'];
 friends.push('Jay'); //introducir un nuevo elemento al final
-const newLenght = friends.push('pepe'); //podemos obtener el número de elementos
-console.log(friends);
-console.log(newLenght);
-
+friends.push('pepe'); //podemos obtener el número de elementos
 friends.unshift('Maria'); //añadir elemento al principio del array
-console.log(friends);
-
 friends.pop(); //elimina el último elemento del array
 const popped = friends.pop(); //Guarda el elemento que se elimina
-console.log(friends);
-console.log(popped);
-
 friends.shift(); //elimina el primer elemento del array
-console.log(friends);
-
-console.log(friends.indexOf('Steven')); //obtiene el índice donde se localiza el elemento
-
-console.log(friends.includes('Steven')); //retorna true si existe
+friends.indexOf('Steven'); //obtiene el índice donde se localiza el elemento
+friends.includes('Steven'); //retorna true si existe
 
 //El uso más común del método includes
 if (friends.includes('Peter')) {
   console.log('Tienes un amigo que se llama peter');
 }
-
 
 //Coding challenge 2
 
@@ -202,10 +176,9 @@ const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
 const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
 console.log(tips, total);
 
-
 //Introduction to objects
 
-//esta sería la forma de hacer un array pero se ordena con números queremos ordenarlos de otra forma
+//esta sería la forma de hacer un Array pero el contenido se ordena con números, queremos ordenarlos de otra forma
 const sergioArray = [
   'sergio',
   'julio',
@@ -214,8 +187,8 @@ const sergioArray = [
   ['Michael', 'Peter', 'Steven'],
 ];
 
-//lo hacemos con un objeto
-//utilizamos objetos para tener la información ordenada por nombres, los arrays serían para información ordenada por número fijo
+//lo hacemos con un Objeto
+//utilizamos objetos para tener la información ordenada por nombres, los arrays serían para tener información ordenada por un número fijo
 const sergio = {
   firstName: 'Sergio',
   lastName: 'Julio',
@@ -223,10 +196,9 @@ const sergio = {
   job: 'it',
   friends: ['Michael', 'Peter', 'Steven'],
 };
-console.log(sergio);
 //ejemplo de obtener un valor de un array
-console.log(sergio.lastName);
-console.log(sergio['lastName']); //es lo mismo que lo anterior, y además podemos escribir expresiones
+sergio.lastName;
+sergio['lastName']; //es lo mismo que lo anterior, y además podemos escribir expresiones
 //ejemplo de como utilizar expresiones para obtener propiedad del objeto
 const nameKey = 'Name';
 console.log(sergio['first' + nameKey]);
@@ -242,15 +214,13 @@ if (sergio[interestedIn]) {
   console.log('Wrong request');
 }
 //añadiendo nuevas propiedades al objeto
-sergio.location = 'Españita';
-sergio['twitter'] = '@sergio';
-console.log(sergio);
-//Challenge
+sergio.location = 'España';
+sergio['twitter'] = '@sergio'; //es otra forma de hacer lo anterior
+
 //Sergio tiene 3 amigos y su mejor amigo es Michael,
 console.log(
   `${sergio.firstName} tiene ${sergio.friends.length} amigos, y su mejor amigo se llama ${sergio.friends[0]}`
 );
-
 
 //Object methods
 
@@ -291,13 +261,10 @@ const sergio = {
 console.log(sergio.calcAge());
 console.log(sergio.age);
 
-//challenge
 //"Sergio is a 30 years old it, and he has a/no drivers license"
 console.log(sergio.description());
 
-
 //Coding challenge 3
-
 const Mark = {
   fullName: 'Mark',
   mass: 78,
@@ -335,7 +302,6 @@ if (Mark.bmi > John.bmi) {
   );
 } else console.log('Both have the same BMI!');
 
-
 //The for loop
 //el for loop continua mientras la condición sea true
 for (let rep = 1; rep <= 10; rep++) {
@@ -364,7 +330,6 @@ for (let i = 0; i < sergioArray.length; i++) {
 console.log(types);
 
 //calcular las fechas de todos los años y guardarlas en un nuevo array
-
 const years = [1992, 1993, 1994, 1995];
 const ages = [];
 
@@ -373,8 +338,7 @@ for (let i = 0; i < years.length; i++) {
 }
 console.log(ages);
 
-//statements for loops: continue and break
-
+//Statements for loops: continue and break
 //continue sólo permite las iteraciones que cumplen los parametros que queremos, descartando las demás
 console.log('---------Only strings');
 for (let i = 0; i < sergioArray.length; i++) {
@@ -389,9 +353,7 @@ for (let i = 0; i < sergioArray.length; i++) {
   console.log(sergioArray[i], typeof sergioArray[i]);
 }
 
-
 //Loop array backwards
-
 const sergio = [
   'sergio',
   'julio',
@@ -405,7 +367,6 @@ for (let i = sergio.length - 1; i >= 0; i--) {
 }
 
 //Loop inside a loop
-
 for (let exercise = 1; exercise < 4; exercise++) {
   console.log(`----- Starting excercise ${exercise} `);
   for (let rep = 1; rep <= 5; rep++) {
@@ -414,7 +375,6 @@ for (let exercise = 1; exercise < 4; exercise++) {
 }
 
 //While loop
-
 let reps = 1;
 while (reps <= 10) {
   console.log(`While: Lifting weights repetition ${reps}`);
@@ -430,9 +390,7 @@ while (dice !== 6) {
   if (dice === 6) console.log('Loop ended');
 }
 
-
 //Coding challenge 4
-
 const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
 const tips = [];
 const totals = [];
@@ -460,11 +418,9 @@ const calcAverage = (arr) => {
 };
 console.log(calcAverage(totals));
 
-
-//Problem
+//CHALLENGE 1 S5
 
 //Given an array of temperatures of a day, calculate the amplitude. Sometimes there are errors.
-
 const temperatures = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5];
 
 //1 understanding the problem: What is amplitude? The difference between highest and lowest temp
@@ -515,7 +471,6 @@ calcTempAmplitudeNew([3, 5, 6, 1, 5], [0, 2, -3, 9, 5]);
 const amplitudeNew = calcTempAmplitudeNew([3, 5, 6, 1, 5], [0, 2, -3, 9, 5]);
 console.log(amplitudeNew);
 
-
 const measureKelvin = function () {
   const measurement = {
     type: 'temp',
@@ -533,10 +488,7 @@ const measureKelvin = function () {
 // A) Identify the bug
 console.log(measureKelvin());
 
-//
-
 //array de máximas, pasar en un string único cada valor del array y acompañarlo de texto.
-
 const printForecast = (arr) => {
   let string = '';
   for (let i = 0; i < arr.length; i++) {
@@ -547,41 +499,3 @@ const printForecast = (arr) => {
 
 console.log(printForecast([17, 21, 23]));
 console.log(printForecast([12, 5, -5, 0, 4]));
-*/
-
-//lo hacemos con un objeto
-//utilizamos objetos para tener la información ordenada por nombres, los arrays serían para información ordenada por número fijo
-const sergio = {
-  firstName: 'Sergio',
-  lastName: 'Julio',
-  age: 2023 - 1992,
-  job: 'it',
-  friends: ['Michael', 'Peter', 'Steven'],
-};
-console.log(sergio);
-//ejemplo de obtener un valor de un array
-console.log(sergio.lastName);
-console.log(sergio['lastName']); //es lo mismo que lo anterior, y además podemos escribir expresiones
-//ejemplo de como utilizar expresiones para obtener propiedad del objeto
-const nameKey = 'Name';
-console.log(sergio['first' + nameKey]);
-//ejemplo en el que creamos una constante donde se guarda la propiedad del objeto que pedimos al usuario, luego lo pasaremos al objeto para obtener su contenido.
-const interestedIn = //prompt
-  'Que quieres saber? firstName, lastName, age, job o friends';
-console.log(sergio[interestedIn]); //utilizamos corchetes por que nos permiten utilizar expresiones, en este caso llamar al objeto con el contenido de la constante, que contiene la propiedad.
-
-//Si la propiedad que pedimos existe o no
-if (sergio[interestedIn]) {
-  console.log(sergio[interestedIn]);
-} else {
-  console.log('Wrong request');
-}
-//añadiendo nuevas propiedades al objeto
-sergio.location = 'Españita';
-sergio['twitter'] = '@sergio';
-console.log(sergio);
-//Challenge
-//Sergio tiene 3 amigos y su mejor amigo es Michael,
-console.log(
-  `${sergio.firstName} tiene ${sergio.friends.length} amigos, y su mejor amigo se llama ${sergio.friends[0]}`
-);
