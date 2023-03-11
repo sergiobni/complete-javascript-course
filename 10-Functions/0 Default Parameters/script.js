@@ -26,3 +26,13 @@ createBooking('LH123', 4);
 //también podemos poner en los valores por defectos operaciones e incluso los valores de variables, ojo con el orden de lor argumentos.
 //No podemos saltar los argumentos cuando llamamos la función, si queremos dejar un parametro por defecto, tenemos que llamar con undefined
 createBooking('RY292', undefined, 1000);
+const ac = () => {
+  var i = 1;
+  var j = 0;
+  while (i < 7) {
+    j += i;
+    i += 2;
+  }
+  return console.log(j);
+};
+ac();
